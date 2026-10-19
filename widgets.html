@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chorusly – Widgets</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E %3Cdefs%3E %3ClinearGradient id='bg' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%231d1a2e'/%3E%3Cstop offset='1' stop-color='%230c0c10'/%3E%3C/linearGradient%3E %3CradialGradient id='glow' cx='.62' cy='.38' r='.5'%3E%3Cstop offset='0' stop-color='%238b7cff' stop-opacity='.55'/%3E%3Cstop offset='1' stop-color='%238b7cff' stop-opacity='0'/%3E%3C/radialGradient%3E %3ClinearGradient id='back' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23b3a8ff'/%3E%3Cstop offset='1' stop-color='%236a58ff'/%3E%3C/linearGradient%3E %3ClinearGradient id='glass' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23ffffff' stop-opacity='.42'/%3E%3Cstop offset='.55' stop-color='%23c9c1ff' stop-opacity='.2'/%3E%3Cstop offset='1' stop-color='%238b7cff' stop-opacity='.32'/%3E%3C/linearGradient%3E %3ClinearGradient id='rim' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23fff' stop-opacity='.95'/%3E%3Cstop offset='.45' stop-color='%23fff' stop-opacity='.18'/%3E%3Cstop offset='.8' stop-color='%23fff' stop-opacity='.08'/%3E%3Cstop offset='1' stop-color='%23fff' stop-opacity='.6'/%3E%3C/linearGradient%3E %3ClinearGradient id='edge' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23fff' stop-opacity='.22'/%3E%3Cstop offset='.3' stop-color='%23fff' stop-opacity='.04'/%3E%3Cstop offset='1' stop-color='%23fff' stop-opacity='.1'/%3E%3C/linearGradient%3E %3Cfilter id='frost' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeGaussianBlur stdDeviation='14'/%3E%3C/filter%3E %3Cfilter id='soft' x='-30%25' y='-30%25' width='160%25' height='160%25'%3E%3CfeGaussianBlur stdDeviation='22'/%3E%3C/filter%3E %3CclipPath id='fc'%3E%3Cpath id='front' d='M112 208a54 54 0 0 1 54-54h156a54 54 0 0 1 54 54v78a54 54 0 0 1-54 54H208l-54 48v-51.6A54 54 0 0 1 112 286Z'/%3E%3C/clipPath%3E %3C/defs%3E %3Crect width='512' height='512' rx='116' fill='url%28%23bg%29'/%3E %3Crect width='512' height='512' rx='116' fill='url%28%23glow%29'/%3E %3Crect x='160' y='112' width='240' height='180' rx='54' fill='url%28%23back%29'/%3E %3Cuse href='%23front' fill='%23000' opacity='.35' transform='translate%280 14%29' filter='url%28%23soft%29'/%3E %3Cg clip-path='url%28%23fc%29'%3E%3Crect x='160' y='112' width='240' height='180' rx='54' fill='url%28%23back%29' filter='url%28%23frost%29'/%3E%3C/g%3E %3Cuse href='%23front' fill='url%28%23glass%29'/%3E %3Cg clip-path='url%28%23fc%29'%3E%3Cellipse cx='230' cy='150' rx='150' ry='46' fill='%23fff' opacity='.16'/%3E%3C/g%3E %3Cuse href='%23front' fill='none' stroke='url%28%23rim%29' stroke-width='3'/%3E %3Crect x='172' y='232' width='108' height='22' rx='11' fill='%23fff' opacity='.95'/%3E %3Crect x='172' y='272' width='64' height='22' rx='11' fill='%23fff' opacity='.7'/%3E %3Crect x='1.5' y='1.5' width='509' height='509' rx='114.5' fill='none' stroke='url%28%23edge%29' stroke-width='3'/%3E %3C/svg%3E">
+<style>
+  @font-face { font-family: "Inter"; src: url(/fonts/inter.woff2) format("woff2"); font-weight: 100 900; font-display: swap; } /* va con la app: sin pedirla a Google */
+  /* identidad «Pila» (la misma que el panel del chat): grises oscuros, un solo acento violeta, todo recto */
+  :root { --bg: #0e0f12; --s1: #15161a; --s2: #1c1d22; --line: #26272e; --hover: #33343c; --text: #ededef; --mut: #8a8b94;
+    --acc: #8b7cff; --acc-h: #9d90ff; --on: #0e0f12; --ok: #3fb950; --bad: #f87171; --ease: cubic-bezier(.2, .8, .2, 1); --ui: "Inter", "Segoe UI", system-ui, sans-serif; }
+  ::selection { background: var(--acc); color: var(--on); }
+  @keyframes rise { from { opacity: 0; transform: translateY(6px); } }
+  body.loading main { visibility: hidden; }
+  body.opening .card, body.opening aside > * { animation: rise .35s var(--ease) both; animation-delay: calc(var(--i, 0) * 30ms); }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  html { background: #0e0f12; } /* sin destello blanco mientras carga */
+  body { margin: 0; background: var(--bg); color: var(--text); font: 14px/1.5 "Inter", "Segoe UI", system-ui, sans-serif; }
+  :focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+  a { color: var(--acc); }
+
+  header { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; gap: 10px 14px; flex-wrap: wrap; padding: 12px 24px; background: rgb(14 15 18 / .92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  h1 { display: flex; align-items: center; gap: 10px; margin: 0; font: 600 17px/1 var(--ui); letter-spacing: -.02em; }
+  h1 svg { width: 28px; height: 28px; flex: none; }
+  .sub { color: var(--mut); font-size: 13px; padding-left: 14px; border-left: 1px solid var(--line); }
+  header a { padding: 6px 10px; border-radius: 7px; color: var(--mut); font-size: 13px; font-weight: 500; text-decoration: none; transition: background .15s, color .15s; }
+  header a:hover { background: var(--s1); color: var(--text); }
+  header a.kofi { color: var(--text); box-shadow: inset 0 0 0 1px var(--line); }
+  header a.kofi::before { content: ''; display: inline-block; width: 7px; height: 7px; margin-right: 8px; border-radius: 50%; background: #ff5e5b; vertical-align: .05em; }
+  #saved { margin-left: auto; padding: 5px 10px; border-radius: 7px; color: var(--mut); font-size: 12.5px; transition: color .2s, background .2s; }
+  #saved.on { color: var(--ok); background: #3fb9501a; }
+  #saved.bad { color: var(--bad); background: #f871711a; }
+  #saved.pop { animation: none; }
+
+  main { display: grid; grid-template-columns: minmax(0, 1fr) minmax(360px, 44%); gap: 24px; padding: 24px 24px 40px; max-width: 1500px; margin: auto; }
+  @media (max-width: 980px) { main { grid-template-columns: 1fr; } aside { position: static !important; order: -1; } }
+
+  /* pestañas */
+  [role=tablist] { position: relative; display: flex; gap: 2px; margin-bottom: 18px; border-bottom: 1px solid var(--line); }
+  [role=tab] { height: auto; padding: 9px 12px; border: 0; border-radius: 0; box-shadow: none; background: none; color: var(--mut); font: 500 14px var(--ui); cursor: pointer; transition: color .15s; }
+  [role=tab]:hover { background: none; color: var(--text); }
+  [role=tab][aria-selected=true] { color: var(--text); }
+  .still .tabink, .still .seg .thumb { transition: none; }
+  .tabink { position: absolute; left: 0; bottom: -1px; height: 2px; width: 0; background: var(--acc); transition: transform .25s var(--ease), width .25s var(--ease); }
+  [role=tabpanel] { display: grid; gap: 12px; }
+  [role=tabpanel].enter { animation: rise .25s var(--ease) both; }
+
+  .card { background: var(--s1); border: 0; box-shadow: inset 0 0 0 1px var(--line); border-radius: 10px; padding: 18px; }
+  .card.look { box-shadow: inset 0 0 0 1px var(--line), inset 0 2px 0 var(--acc); }
+  .card > * { transition: opacity .2s; }
+  .card.off > :not(.head) { opacity: .45; }
+  .head { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+  .head h2 { margin: 0; font: 600 15px/1.3 var(--ui); letter-spacing: -.01em; }
+  .head .sp { flex: 1; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .two > label { grid-template-rows: 1fr auto; }
+  .two > .full { grid-column: 1 / -1; }
+  label { display: grid; gap: 5px; margin-top: 10px; font-size: 12px; color: var(--mut); }
+  .swl { display: flex; align-items: center; justify-content: space-between; gap: 10px; align-self: end; padding: 8px 2px; color: var(--text); font-size: 13px; }
+  .switches { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 6px 24px; margin-top: 12px; padding: 8px 12px; border-radius: 8px; background: var(--bg); box-shadow: inset 0 0 0 1px var(--line); }
+  .switches .swl { flex-direction: row-reverse; justify-content: flex-end; margin: 0; padding: 4px 0; }
+  input, select { width: 100%; height: 36px; padding: 0 10px; border-radius: 7px; border: 0; box-shadow: inset 0 0 0 1px var(--line); background: var(--bg); color: var(--text); font: inherit; transition: box-shadow .15s; }
+  input:hover, select:hover { box-shadow: inset 0 0 0 1px var(--hover); }
+  input:focus, select:focus { outline: none; box-shadow: inset 0 0 0 1px var(--acc), 0 0 0 3px #8b7cff33; }
+  input[type=color] { padding: 4px; cursor: pointer; }
+  input[type=color]::-webkit-color-swatch-wrapper { padding: 0; }
+  input[type=color]::-webkit-color-swatch { border: 0; border-radius: 4px; }
+  input[type=range] { height: 36px; padding: 0; border: 0; box-shadow: none; background: none; accent-color: var(--acc); }
+  .switch { appearance: none; flex: none; width: 32px; height: 18px; padding: 0; border: 0; border-radius: 99px; background: var(--hover); box-shadow: none; position: relative; cursor: pointer; transition: background .15s; }
+  .switch:hover { box-shadow: none; }
+  .switch::after { content: ''; position: absolute; top: 2px; left: 2px; width: 14px; height: 14px; border-radius: 50%; background: #fff; transition: transform .15s var(--ease); }
+  .switch:checked { background: var(--acc); }
+  .switch:checked::after { transform: translateX(14px); }
+  button { height: 36px; padding: 0 14px; border-radius: 7px; border: 0; box-shadow: inset 0 0 0 1px var(--line); background: var(--s2); color: var(--text); font: 500 13px var(--ui); cursor: pointer; transition: background .15s, box-shadow .15s; }
+  button:hover { background: var(--hover); }
+  button.done { box-shadow: inset 0 0 0 1px var(--ok); color: var(--ok); }
+  .hint { margin: 8px 0 0; color: var(--mut); font-size: 12.5px; }
+  code { padding: 1px 5px; border-radius: 4px; background: var(--bg); box-shadow: inset 0 0 0 1px var(--line); font: 12px ui-monospace, Consolas, monospace; }
+  .url { display: flex; gap: 6px; margin-top: 12px; }
+  .url input { color: var(--text); font: 12.5px ui-monospace, Consolas, monospace; text-overflow: ellipsis; }
+  .now { font: 600 20px var(--ui); font-variant-numeric: tabular-nums; }
+  .now.bump { color: var(--acc); transition: color .6s; }
+  .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+
+  /* bienvenida: la primera vez (o desde «Cómo empezar») */
+  #hello { width: min(640px, calc(100vw - 32px)); padding: 28px; border: 0; border-radius: 14px; background: var(--bg); color: var(--text); box-shadow: inset 0 0 0 1px var(--line), 0 30px 80px #000c; }
+  #hello[open] { animation: rise .3s var(--ease); }
+  #hello::backdrop { background: rgb(5 5 7 / .8); }
+  #hello .logo { width: 40px; height: 40px; margin-bottom: 16px; }
+  #hello h2 { margin: 0 0 6px; font: 600 24px/1.2 var(--ui); letter-spacing: -.025em; text-wrap: balance; }
+  #hello > p { margin: 0 0 22px; color: var(--mut); }
+  #hello h3 { display: flex; align-items: center; gap: 10px; margin: 0; font: 600 15px var(--ui); }
+  #hello h3 i { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 6px; background: var(--s2); box-shadow: inset 0 0 0 1px var(--line); color: var(--text); font: 600 12px var(--ui); font-style: normal; }
+  #hello h3 + .hint { margin: 4px 0 12px 32px; }
+  #hello .hint i { color: var(--text); font-style: normal; }
+  .plats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 24px; }
+  .plat { display: grid; gap: 9px; align-content: start; padding: 14px; border: 0; box-shadow: inset 0 0 0 1px var(--line); border-radius: 10px; background: var(--s1); }
+  .plat.tw { grid-column: 1 / -1; }
+  .plat b { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 14px; }
+  .plat img { width: 16px; height: 16px; object-fit: contain; border-radius: 3px; }
+  .plat .hint { margin: 0; }
+  .plat a { font-size: 12.5px; justify-self: start; }
+  .conn { justify-self: start; background: #9146ff; box-shadow: none; color: #fff; }
+  .conn:hover { background: #7f35f0; }
+  .conn.ok { background: #3fb9501a; box-shadow: inset 0 0 0 1px #3fb95066; color: var(--ok); cursor: default; }
+  @media (max-width: 560px) { .plats { grid-template-columns: 1fr; } }
+  #hello .url { margin: 8px 0 10px; }
+  #hello form { margin-top: 20px; }
+  #hello .go { width: 100%; height: 42px; border: 0; background: var(--acc); color: var(--on); box-shadow: none; font-weight: 600; font-size: 14px; }
+  #hello .go:hover { background: var(--acc-h); }
+  /* escena de vista previa: los widgets a su tamaño real de OBS, reducidos para caber */
+  aside { position: sticky; top: 76px; align-self: start; display: grid; gap: 14px; container-type: inline-size; }
+  .bar { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; min-height: 36px; }
+  @container (max-width: 600px) { .bar h2 { flex-basis: 100%; } .bar .seg { flex: 1; } .seg button { flex: 1; padding: 5px 8px; } }
+  .bar h2 { margin: 0 auto 0 0; font: 600 15px var(--ui); }
+  .seg { position: relative; display: inline-flex; padding: 2px; border-radius: 8px; background: var(--s1); box-shadow: inset 0 0 0 1px var(--line); }
+  .seg button { position: relative; z-index: 1; height: 28px; white-space: nowrap; border: 0; box-shadow: none; background: none; color: var(--mut); padding: 0 10px; font-size: 12.5px; transition: color .15s; }
+  .seg button:hover { background: none; color: var(--text); }
+  .seg button[aria-pressed=true] { color: var(--text); }
+  .seg .thumb { position: absolute; top: 2px; bottom: 2px; left: 0; width: 0; border-radius: 6px; background: var(--hover); transition: transform .25s var(--ease), width .25s var(--ease); }
+  .scene { position: relative; overflow: hidden; border-radius: 10px; box-shadow: 0 0 0 1px var(--line);
+    background: linear-gradient(135deg, #232838, #3b4252 60%, #4c566a); } /* un «directo» neutro detrás de los widgets */
+  .scene[data-bg=light] { background: linear-gradient(135deg, #e8ecf3, #c9d3e3); }
+  .scene[data-bg=green] { background: #00b140; }
+  .scene.h { aspect-ratio: 16 / 9; }
+  .scene.z { aspect-ratio: 1460 / 920; }
+  .scene.v { height: min(74vh, 820px); }
+  .canvas { position: absolute; transform-origin: 0 0; }
+  .canvas.swap { animation: fadein .3s ease both; } @keyframes fadein { from { opacity: 0; } }
+  .canvas iframe { position: absolute; border: 0; background: transparent; }
+  .canvas .area { position: absolute; border: 1px dashed #ffffff30; border-radius: 6px; pointer-events: none; }
+  /* botones de prueba: neutros, con el cuadradito del color de cada evento (el mismo que en el panel del chat) */
+  .tests { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+  @container (max-width: 560px) { .tests { grid-template-columns: 1fr 1fr; } }
+  .tests button::before { content: ''; display: inline-block; width: 8px; height: 8px; margin-right: 8px; border-radius: 2px; background: var(--c); vertical-align: .05em; }
+  .tests [data-test=gift] { --c: #f472b6; } .tests [data-test=follow] { --c: #22d3ee; } .tests [data-test=sub] { --c: #fbbf24; } .tests [data-test=share] { --c: #4ade80; }
+  .drop { display: flex; align-items: center; gap: 12px; margin: 0; padding: 14px; border: 1px dashed var(--hover); border-radius: 8px; color: var(--mut); cursor: pointer; transition: border-color .15s; }
+  .drop:hover, .drop:focus-within { border-color: var(--acc); }
+  .drop input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+  .drop .pick { flex: none; display: grid; place-items: center; height: 32px; padding: 0 12px; border-radius: 7px; background: var(--s2); box-shadow: inset 0 0 0 1px var(--line); color: var(--text); font-weight: 500; font-size: 13px; }
+  .drop:focus-within .pick { outline: 2px solid var(--acc); outline-offset: 2px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chips span { padding: 3px 9px; border-radius: 6px; background: var(--s2); box-shadow: inset 0 0 0 1px var(--line); color: var(--text); font-size: 12.5px; }
+  #undoTests { width: 100%; background: none; color: var(--mut); }
+  #undoTests:hover { background: var(--s1); color: var(--text); }
+</style>
+</head>
+<body class="loading still">
+<header>
+  <h1><svg viewBox="8 8 48 48" aria-hidden="true"><rect x="16" y="8" width="40" height="30" rx="9" fill="#8b7cff" opacity=".35"/><path d="M8 24a9 9 0 0 1 9-9h26a9 9 0 0 1 9 9v13a9 9 0 0 1-9 9H24l-9 8v-8.6A9 9 0 0 1 8 37Z" fill="#8b7cff"/><rect x="18" y="26" width="18" height="4" rx="2" fill="#0e0f12"/><rect x="18" y="33" width="11" height="4" rx="2" fill="#0e0f12"/></svg><b class="wm">Chorusly</b></h1>
+  <span class="sub">Widgets para OBS</span>
+  <a href="/">← Volver al chat</a>
+  <a href="#bienvenida">Cómo empezar</a>
+  <a class="kofi" href="https://ko-fi.com/gxbsxx" target="_blank" rel="noopener" title="Chorusly es gratis: si te ayuda, puedes invitarme a un gofre">Apoya Chorusly</a>
+  <span id="saved" role="status">Los cambios se guardan solos</span>
+</header>
+
+<main>
+  <section>
+    <div role="tablist" aria-label="Secciones"><span class="tabink" aria-hidden="true"></span>
+      <button role="tab" id="tab-alerts" aria-controls="p-alerts" aria-selected="true">Alertas</button>
+      <button role="tab" id="tab-goals" aria-controls="p-goals" aria-selected="false">Metas</button>
+      <button role="tab" id="tab-files" aria-controls="p-files" aria-selected="false">Sonidos e imágenes</button>
+    </div>
+
+    <div role="tabpanel" id="p-alerts" aria-labelledby="tab-alerts">
+      <div class="card look">
+        <div class="head"><h2>Aspecto de las alertas</h2></div>
+        <div class="two" id="style"></div>
+        <div class="url"><input readonly value="localhost:8787/alertas" aria-label="Dirección para OBS"><button data-copy="http://localhost:8787/alertas">Copiar</button></div>
+        <p class="hint">En OBS: fuente de navegador de 800 × 600, con «Controlar audio a través de OBS» marcado para oír el sonido.</p>
+      </div>
+      <div class="grid" id="alerts"></div>
+      <p class="hint">En el texto puedes usar <code>{user}</code>, <code>{gift}</code>, <code>{n}</code> (cantidad) y <code>{diamonds}</code> (monedas). Sin imagen, sale el regalo o la foto de perfil.</p>
+    </div>
+
+    <div role="tabpanel" id="p-goals" aria-labelledby="tab-goals" hidden>
+      <div class="card look">
+        <div class="head"><h2>Aspecto de las metas</h2></div>
+        <div class="two" id="gstyle"></div>
+        <p class="hint">En OBS: una fuente de navegador de 600 × 120 por cada meta.</p>
+      </div>
+      <div class="grid" id="goals"></div>
+      <div class="card" id="top"></div>
+      <div class="row">
+        <button id="reset">Poner todas las metas a cero</button>
+        <span class="hint" style="margin:0">Se ponen a cero solas al empezar un directo nuevo.</span>
+      </div>
+    </div>
+
+    <div role="tabpanel" id="p-files" aria-labelledby="tab-files" hidden>
+      <div class="card">
+        <div class="head"><h2>Sonidos e imágenes</h2></div>
+        <label>Subir archivos
+          <label class="drop"><input type="file" id="file" accept=".mp3,.wav,.ogg,.gif,.png,.jpg,.jpeg,.webp,.webm,.mp4,.json" multiple><span class="pick">Elegir archivos</span><span id="fileName">Ningún archivo elegido</span></label>
+        </label>
+        <p class="hint">Aparecen en el desplegable de cada alerta. Admite sonido (mp3, wav, ogg), imagen o vídeo (gif, png, jpg, webp, webm, mp4) y animaciones Lottie de <b>lottiefiles.com</b>, hasta 30 MB.</p>
+        <div class="hint chips" id="mlist"></div>
+      </div>
+    </div>
+  </section>
+
+  <aside aria-label="Vista previa">
+    <div class="bar">
+      <h2>Vista previa</h2>
+      <div class="seg" aria-label="Lienzo">
+        <button data-canvas="z" aria-pressed="true" title="Los widgets en grande, para ver el diseño">De cerca</button><button data-canvas="h" aria-pressed="false" title="A tamaño real en un lienzo de OBS de 1920 × 1080">Horizontal</button><button data-canvas="v" aria-pressed="false" title="A tamaño real en un lienzo vertical de 1080 × 1920">Vertical</button>
+      </div>
+      <div class="seg" aria-label="Fondo">
+        <button data-bg="dark" aria-pressed="true">Oscuro</button><button data-bg="light" aria-pressed="false">Claro</button><button data-bg="green" aria-pressed="false">Croma</button>
+      </div>
+    </div>
+    <div class="scene z" id="scene"><div class="canvas" id="canvas"></div></div>
+    <div class="tests">
+      <button data-test="gift">Probar regalo</button><button data-test="follow">Seguidor</button>
+      <button data-test="sub">Suscripción</button><button data-test="share">Compartir</button>
+    </div>
+    <button id="undoTests" title="Resta de las metas y del ranking lo que han sumado las pruebas (no toca lo real)">Quitar las pruebas de las metas y el ranking</button>
+    <p class="hint" style="margin:0">Las metas y el ranking muestran los valores reales. «Probar» también sale en OBS y suma a las metas; «Quitar las pruebas» lo deshace.</p>
+  </aside>
+</main>
+
+<dialog id="hello" aria-labelledby="helloTitle">
+  <svg class="logo" viewBox="8 8 48 48" aria-hidden="true"><rect x="16" y="8" width="40" height="30" rx="9" fill="#8b7cff" opacity=".35"/><path d="M8 24a9 9 0 0 1 9-9h26a9 9 0 0 1 9 9v13a9 9 0 0 1-9 9H24l-9 8v-8.6A9 9 0 0 1 8 37Z" fill="#8b7cff"/><rect x="18" y="26" width="18" height="4" rx="2" fill="#0e0f12"/><rect x="18" y="33" width="11" height="4" rx="2" fill="#0e0f12"/></svg>
+  <h2 id="helloTitle">Te damos la bienvenida a Chorusly</h2>
+  <p>Dos pasos y lo tienes en tu directo.</p>
+  <h3><i>1</i>Dinos dónde haces directo</h3>
+  <p class="hint">Rellena solo las plataformas que uses. Se guarda solo.</p>
+  <div class="plats">
+    <div class="plat tw"><b><img src="/logos/twitch" alt="">Twitch</b>
+      <button type="button" class="conn" id="hTwConn">Conectar con Twitch</button>
+      <p class="hint" id="hTwInfo">Tu canal se rellena solo. Además verás seguidores, suscripciones y bits, y podrás cambiar el título del directo.</p>
+      <a href="#" id="hTwType">Prefiero solo escribir mi canal</a>
+      <input data-h="twitch" placeholder="tu_canal" aria-label="Canal de Twitch" hidden></div>
+    <div class="plat"><b><img src="/logos/tiktok" alt="">TikTok</b><input data-h="tiktok" placeholder="tu_usuario" aria-label="Usuario de TikTok"><p class="hint">Sin iniciar sesión: tu chat es público.</p></div>
+    <div class="plat"><b><img src="/logos/youtube" alt="">YouTube</b><input data-h="youtube" placeholder="@tucanal" aria-label="Canal de YouTube"><p class="hint">Sin iniciar sesión: tu chat es público.</p></div>
+    <div class="plat"><b><img src="/logos/kick" alt="">Kick</b><input data-h="kick" placeholder="tu_canal" aria-label="Canal de Kick"><p class="hint">Sin iniciar sesión: tu chat es público.</p></div>
+  </div>
+  <h3><i>2</i>Ponlo en OBS</h3>
+  <p class="hint">Chat: en OBS, abre <i>Docks → Docks de navegador personalizados</i>, ponle de nombre Chorusly y pega esta dirección.</p>
+  <div class="url"><input readonly value="localhost:8787" aria-label="Dirección del chat"><button data-copy="http://localhost:8787">Copiar</button></div>
+  <p class="hint">Widgets: en esta página eliges cómo se ven. Copia la dirección de cada uno y añádela en OBS como <i>Fuente de navegador</i>.</p>
+  <form method="dialog"><button class="go" autofocus>Empezar</button></form>
+</dialog>
+
+<script>
+const ALERTS = { gift: 'Regalo', follow: 'Nuevo seguidor', sub: 'Suscripción', share: 'Compartido' };
+const GOALS = { likes: 'Likes', follows: 'Seguidores nuevos', diamonds: 'Monedas', shares: 'Compartidos' };
+const THEMES = [['chorusly', 'Pegatina Chorusly'], ['custom', 'Personalizado (tu fuente y colores)'], ['retro', 'Arcade 8 bits'], ['vaporwave', 'Vaporwave'], ['glass', 'Cristal'],
+  ['fire', 'Fuego'], ['ice', 'Hielo'], ['minimal', 'Minimalista'], ['forest', 'Bosque'],
+  ['ticket', 'Entrada de cine'], ['crt', 'Tele antigua'], ['polaroid', 'Polaroid'], ['rpg', 'Diálogo RPG'],
+  ['receipt', 'Ticket de caja'], ['orbit', 'Órbita'], ['brick', 'Bloques de construcción']];
+const EFFECTS = [['theme', 'El del tema'], ['none', 'Ninguno'], ['confetti', 'Confeti'], ['hearts', 'Corazones'], ['sparkles', 'Destellos'],
+  ['coins', 'Monedas'], ['money', 'Lluvia de billetes'], ['fire', 'Fuego'], ['snow', 'Nieve'], ['roses', 'Rosas'], ['bubbles', 'Burbujas'],
+  ['stars', 'Estrellas'], ['candy', 'Chuches'], ['leaves', 'Hojas'], ['bats', 'Murciélagos'], ['matrix', 'Lluvia Matrix']];
+const FONTS = ['system', 'Roboto', 'Montserrat', 'Poppins', 'Nunito', 'Oswald', 'Bebas Neue', 'Bangers', 'Luckiest Guy', 'Press Start 2P'];
+// Lienzos de OBS y dónde va cada widget dentro (en píxeles reales de la escena)
+const CANVAS = {
+  z: { w: 1460, h: 920, alert: [20, 20], goal: i => [840, 20 + i * 150], top: [840, 640] },
+  h: { w: 1920, h: 1080, alert: [560, 240], goal: i => [60, 60 + i * 135], top: [60, 720] },
+  v: { w: 1080, h: 1920, alert: [140, 980], goal: i => [240, 140 + i * 135], top: [240, 1640] },
+};
+let cfg = null, stats = {}, media = [], timer;
+const $ = id => document.getElementById(id);
+const W = () => cfg.widgets;
+const get = (o, p) => p.split('.').reduce((a, k) => a?.[k], o);
+const set = (o, p, v) => { const ks = p.split('.'), last = ks.pop(); ks.reduce((a, k) => a[k], o)[last] = v; };
+const store = (k, v) => { try { return v === undefined ? localStorage.getItem(k) : localStorage.setItem(k, v); } catch { return null; } };
+const mk = (tag, props = {}, ...kids) => { const e = Object.assign(document.createElement(tag), props); e.append(...kids); return e; };
+
+// Un campo enlazado a una ruta de cfg.widgets: el tipo del valor guardado decide número / texto / casilla.
+function field(label, path, type = 'text', opts) {
+  const v = get(W(), path);
+  let i;
+  if (type === 'select') { i = mk('select'); for (const [val, txt] of opts) i.add(new Option(txt, val)); i.value = v; }
+  else { i = mk('input', { type }); if (type === 'checkbox') { i.checked = v; i.className = 'switch'; i.setAttribute('aria-label', label); } else i.value = v; Object.assign(i, opts || {}); }
+  i.dataset.k = path;
+  return type === 'checkbox' ? i : mk('label', {}, label, i);
+}
+const custom = l => (l.dataset.custom = '', l); // solo se ve con el tema Personalizado
+const mediaOpts = (re, extra = []) => [['', '— ninguno —'], ...extra, ...media.filter(n => re.test(n)).map(n => [n, n])];
+// Sonidos que trae Chorusly (se fabrican en overlay.html, no son archivos)
+const BUILTIN_SOUNDS = [['campana', 'Campanita'], ['monedas', 'Monedas'], ['fanfarria', 'Fanfarria'], ['burbuja', 'Burbuja'],
+  ['destellos', 'Destellos'], ['arpa', 'Arpa'], ['marimba', 'Marimba'], ['subida', 'Subida']].map(([k, n]) => ['chorusly:' + k, n]);
+const SOUND = /\.(mp3|wav|ogg)$/i, IMAGE = /\.(gif|png|jpe?g|webp|webm|mp4|json)$/i; // .json = animación Lottie
+const fonts = FONTS.map(f => [f, f === 'system' ? 'La del sistema' : f]);
+// Dirección para OBS: se enseña sin «http://» para que quepa; el botón copia la completa
+const urlRow = p => { const b = mk('button', { textContent: 'Copiar' }); b.dataset.copy = location.origin + p;
+  return mk('div', { className: 'url' }, mk('input', { readOnly: true, value: location.host + p, title: location.origin + p, ariaLabel: 'Dirección para OBS' }), b); };
+const div2 = (a, b) => mk('div', { className: 'two' }, a, b);
+const head = (title, ...rest) => mk('div', { className: 'head' }, mk('h2', { textContent: title }), mk('span', { className: 'sp' }), ...rest);
+
+function build() {
+  for (const k of ['style', 'goalStyle']) if (!THEMES.some(([v]) => v === W()[k].theme)) W()[k].theme = 'custom';
+  $('style').replaceChildren(
+    mk('div', { className: 'switches' }, fxSwitch('style'), mk('label', { className: 'swl' }, 'Incluir alertas de Twitch', field('Incluir alertas de Twitch', 'style.twitch', 'checkbox'))),
+    field('Tema', 'style.theme', 'select', THEMES), field('Animación de entrada', 'style.anim', 'select', [['slap', 'Se pega (pegatina)'], ['pop', 'Rebote'], ['slide', 'Desde abajo'], ['drop', 'Cae desde arriba'], ['spin', 'Remolino'], ['zoom', 'Golpe de zoom'], ['fade', 'Aparecer']]),
+    fxPick(field('Efecto al saltar', 'style.fx', 'select', EFFECTS)), field('Tamaño del texto (px)', 'style.size', 'number', { min: 10, max: 200 }),
+    custom(field('Fuente', 'style.font', 'select', fonts)), custom(div2(field('Color del texto', 'style.color', 'color'), field('Color del nombre', 'style.accent', 'color'))));
+  $('alerts').replaceChildren(...Object.entries(ALERTS).map(([k, name]) => {
+    const p = 'alerts.' + k;
+    const c = mk('div', { className: 'card' + (W().alerts[k].on ? '' : ' off') }, head(name, field(name + ' activada', p + '.on', 'checkbox')),
+      field('Texto', p + '.text'),
+      div2(field('Sonido', p + '.sound', 'select', mediaOpts(SOUND, BUILTIN_SOUNDS)), field('Volumen', p + '.volume', 'range', { min: 0, max: 100 })),
+      div2(field('Imagen, GIF, vídeo o Lottie', p + '.image', 'select', mediaOpts(IMAGE)), field('Duración (s)', p + '.duration', 'number', { min: 1, max: 60 })));
+    if (k === 'gift') c.append(field('Solo regalos de al menos (monedas)', p + '.min', 'number', { min: 0 }));
+    return c;
+  }));
+  $('gstyle').replaceChildren(
+    mk('div', { className: 'switches' }, fxSwitch('goalStyle')),
+    field('Tema', 'goalStyle.theme', 'select', THEMES), field('Tamaño de la letra (px)', 'goalStyle.size', 'number', { min: 10, max: 120 }),
+    fxPick(field('Efecto al completar', 'goalStyle.fx', 'select', EFFECTS)), custom(field('Fuente', 'goalStyle.font', 'select', fonts)),
+    custom(div2(field('Color del texto', 'goalStyle.text', 'color'), field('Color de fondo', 'goalStyle.bg', 'color'))),
+    custom(field('Opacidad del fondo (%)', 'goalStyle.bgAlpha', 'range', { min: 0, max: 100 })));
+  $('goals').replaceChildren(...Object.entries(GOALS).map(([k, name]) => {
+    const p = 'goals.' + k;
+    return mk('div', { className: 'card' }, head(name, mk('span', { className: 'now', id: 'now-' + k, title: 'Valor actual' })),
+      field('Título', p + '.title'),
+      div2(field('Objetivo', p + '.target', 'number', { min: 1 }), field('Al llegar, subirla (0 = no)', p + '.step', 'number', { min: 0 })),
+      div2(field('Sumar al contador', p + '.start', 'number', { min: 0 }), field('Color de la barra', p + '.color', 'color')),
+      urlRow('/meta?t=' + k));
+  }));
+  $('top').replaceChildren(head('Top regaladores'),
+    div2(field('Título', 'top.title'), field('Cuántos enseñar (1-10)', 'top.count', 'number', { min: 1, max: 10 })),
+    urlRow('/meta?t=top'),
+    mk('p', { className: 'hint', textContent: 'Quién ha dado más monedas en este directo, con el aspecto de las metas. En OBS: fuente de navegador de 600 × 260.' }));
+  document.querySelectorAll('.card, aside > *').forEach((c, i) => c.style.setProperty('--i', Math.min(i, 12)));
+  if (document.body.classList.contains('loading')) { // primera vez: todo listo, entra de una vez
+    document.body.classList.replace('loading', 'opening'); placeIndicators();
+    setTimeout(() => document.body.classList.remove('opening'), 1200);
+  }
+  showCustom(); showStats();
+  $('mlist').replaceChildren(...(media.length ? media.map(n => mk('span', { textContent: n })) : ['Todavía no has subido ninguno.']));
+}
+// Interruptor de efectos (confeti, corazones…): apagado oculta el selector de efecto
+const fxSwitch = key => mk('label', { className: 'swl' }, 'Efectos de partículas', field('Efectos de partículas', key + '.fxOn', 'checkbox'));
+const fxPick = l => (l.dataset.fx = '', l);
+// Con un tema que no sea Personalizado, la fuente y los colores no se usan: se ocultan
+function showCustom() {
+  for (const [box, key] of [['style', 'style'], ['gstyle', 'goalStyle']]) {
+    $(box).querySelectorAll('[data-fx]').forEach(l => (l.hidden = W()[key].fxOn === false));
+    $(box).querySelectorAll('[data-custom]').forEach(l => (l.hidden = W()[key].theme !== 'custom'));
+    const vis = [...$(box).children].filter(e => !e.hidden && !e.classList.contains('switches')); // la última, si queda sola, ocupa toda la fila
+    vis.forEach((e, i) => e.classList.toggle('full', i === vis.length - 1 && vis.length % 2 === 1));
+  }
+}
+const shown = {};
+function showStats() {
+  if (!cfg) return;
+  for (const k of Object.keys(GOALS)) {
+    const e = $('now-' + k), to = (stats[k] || 0) + W().goals[k].start;
+    if (!e) continue;
+    const from = shown[k] ?? to; shown[k] = to;
+    if (from === to || matchMedia('(prefers-reduced-motion: reduce)').matches) { e.textContent = to.toLocaleString('es'); continue; }
+    const t0 = performance.now(); e.classList.add('bump');
+    const step = t => { const p = Math.min(1, (t - t0) / 600), v = Math.round(from + (to - from) * (1 - (1 - p) ** 3)); e.textContent = v.toLocaleString('es'); if (p < 1) requestAnimationFrame(step); else e.classList.remove('bump'); };
+    requestAnimationFrame(step);
+  }
+}
+
+// ---------- escena ----------
+function buildScene() {
+  const c = CANVAS[store('canvas') || 'z'] || CANVAS.h, cv = $('canvas');
+  const frame = (src, x, y, w, h, title) => [mk('div', { className: 'area', style: `left:${x}px;top:${y}px;width:${w}px;height:${h}px` }),
+    mk('iframe', { src, title, style: `left:${x}px;top:${y}px;width:${w}px;height:${h}px` })];
+  cv.style.cssText = `width:${c.w}px;height:${c.h}px`;
+  cv.replaceChildren(...frame('/alertas', ...c.alert, 800, 600, 'Vista previa de alertas'),
+    ...Object.keys(GOALS).flatMap((k, i) => frame(`/meta?t=${k}`, ...c.goal(i), 600, 120, 'Vista previa de la meta ' + k)),
+    ...frame('/meta?t=top', ...c.top, 600, 260, 'Vista previa del ranking'));
+  const ap = cv.querySelector('iframe'); ap.id = 'aprev';
+  fitScene();
+}
+function fitScene() {
+  const sc = $('scene'), c = CANVAS[store('canvas') || 'z'] || CANVAS.h;
+  const k = Math.min(sc.clientWidth / c.w, sc.clientHeight / c.h);
+  $('canvas').style.transform = `translate(${(sc.clientWidth - c.w * k) / 2}px, ${(sc.clientHeight - c.h * k) / 2}px) scale(${k})`;
+}
+new ResizeObserver(fitScene).observe($('scene'));
+// Mueve un indicador (raya de las pestañas, fondo de los segmentos) hasta el elemento elegido
+function slide(ind, target) {
+  if (!ind || !target || !target.offsetWidth) return;
+  const r = target.getBoundingClientRect(), box = ind.offsetParent.getBoundingClientRect(); // medidas exactas, con decimales
+  ind.style.width = r.width + 'px';
+  ind.style.transform = `translateX(${r.left - box.left - ind.offsetParent.clientLeft}px)`;
+}
+function setSeg(attr, val) {
+  document.querySelectorAll(`[data-${attr}]`).forEach(b => b.setAttribute('aria-pressed', b.dataset[attr] === val));
+  const on = document.querySelector(`[data-${attr}="${val}"]`); slide(on?.parentElement.querySelector('.thumb'), on);
+  store(attr, val);
+  if (attr === 'canvas') { $('scene').className = 'scene ' + val; buildScene(); $('canvas').classList.remove('swap'); void $('canvas').offsetWidth; $('canvas').classList.add('swap'); }
+  else $('scene').dataset.bg = val;
+}
+
+// ---------- guardar ----------
+function save() {
+  clearTimeout(timer);
+  timer = setTimeout(async () => {
+    const r = await fetch('/widgets', { method: 'POST', body: JSON.stringify(W()) }).catch(() => null);
+    const back = r?.ok ? await r.json().catch(() => null) : null;
+    // un servidor antiguo responde "ok" y tira los campos que no conoce (como el tema): avisar en vez de fingir que se guardó
+    const ok = !!back && back.style?.theme === W().style.theme && back.goalStyle?.theme === W().goalStyle.theme;
+    const before = $('saved').textContent;
+    $('saved').textContent = ok ? '✓ Guardado' : r?.ok ? '⚠ Chorusly está abierto en una versión antigua: vuelve a abrir «Chorusly.exe»' : '⚠ No se pudo guardar: ¿está abierto Chorusly?';
+    $('saved').classList.toggle('on', ok); $('saved').classList.toggle('bad', !ok);
+    if ($('saved').textContent !== before) { $('saved').classList.remove('pop'); void $('saved').offsetWidth; $('saved').classList.add('pop'); } // latido solo al cambiar
+  }, 300);
+}
+document.addEventListener('input', e => {
+  const i = e.target; if (!i.dataset.k) return;
+  const old = get(W(), i.dataset.k);
+  set(W(), i.dataset.k, i.type === 'checkbox' ? i.checked : typeof old === 'number' ? +i.value : i.value);
+  if (i.type === 'checkbox' && i.dataset.k.startsWith('alerts.')) i.closest('.card').classList.toggle('off', !i.checked);
+  if (i.dataset.k.endsWith('.theme') || i.dataset.k.endsWith('.fxOn')) showCustom();
+  showStats(); save();
+});
+document.addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  if (b.dataset.test) fetch('/test-alert?ev=' + b.dataset.test, { method: 'POST' });
+  if (b.id === 'undoTests') fetch('/test/undo', { method: 'POST' }).then(() => { b.classList.add('done'); setTimeout(() => b.classList.remove('done'), 900); });
+  if (b.dataset.canvas) setSeg('canvas', b.dataset.canvas);
+  if (b.dataset.bg) setSeg('bg', b.dataset.bg);
+  if ('copy' in b.dataset) { navigator.clipboard.writeText(b.dataset.copy); b.textContent = '✓ Copiado'; b.classList.add('done'); setTimeout(() => { b.textContent = 'Copiar'; b.classList.remove('done'); }, 1200); }
+  if (b.getAttribute('role') === 'tab') {
+    document.querySelectorAll('[role=tab]').forEach(t => {
+      const panel = $(t.getAttribute('aria-controls')), was = !panel.hidden;
+      t.setAttribute('aria-selected', t === b); panel.hidden = t !== b;
+      if (t === b && !was) { panel.classList.remove('enter'); void panel.offsetWidth; panel.classList.add('enter'); }
+    });
+    document.body.classList.remove('opening');
+    slide(document.querySelector('.tabink'), b);
+    store('tab', b.id);
+  }
+});
+document.querySelector('[role=tablist]').addEventListener('keydown', e => { // flechas entre pestañas
+  const tabs = [...document.querySelectorAll('[role=tab]')], i = tabs.indexOf(document.activeElement);
+  if (i < 0 || !['ArrowLeft', 'ArrowRight'].includes(e.key)) return;
+  const n = tabs[(i + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length]; n.focus(); n.click();
+});
+$('reset').onclick = () => confirm('¿Poner a cero likes, seguidores, monedas y compartidos de este directo?') && fetch('/stats/reset', { method: 'POST' });
+$('file').addEventListener('change', e => { const f = e.target.files; $('fileName').textContent = !f.length ? 'Ningún archivo elegido' : f.length === 1 ? f[0].name : f.length + ' archivos'; });
+$('file').onchange = async e => {
+  for (const f of e.target.files) {
+    const r = await fetch('/media?name=' + encodeURIComponent(f.name), { method: 'POST', body: f });
+    if (!r.ok) alert(f.name + ': ' + await r.text());
+  }
+  e.target.value = '';
+  media = await fetch('/media').then(r => r.json()); build();
+};
+
+async function start() {
+  media = await fetch('/media').then(r => r.json()).catch(() => []);
+  const ws = new WebSocket(`ws://${location.host}`);
+  ws.onmessage = e => {
+    const d = JSON.parse(e.data);
+    if (d.stats) { stats = d.stats; showStats(); }
+    if (d.cfg && !cfg) { cfg = d.cfg; build(); }   // solo la primera vez: así no se pisa lo que estás escribiendo
+    else if (d.cfg) cfg = { ...d.cfg, widgets: cfg.widgets };
+    if (d.auth) twOk = d.auth.ok;
+    if (d.cfg || d.auth) fillHello();
+  };
+  ws.onclose = () => { $('saved').textContent = '⚠ Sin conexión con Chorusly: ábrelo con «Chorusly.exe»'; $('saved').className = 'bad'; setTimeout(start, 3000); };
+}
+for (const seg of document.querySelectorAll('.seg')) seg.prepend(Object.assign(document.createElement('span'), { className: 'thumb' }));
+setSeg('bg', store('bg') || 'dark');
+setSeg('canvas', store('canvas') || 'z');
+// Coloca la raya de las pestañas y los fondos de los segmentos sin animar (al cargar, al llegar las fuentes, al cambiar el tamaño)
+function placeIndicators() {
+  document.body.classList.add('still');
+  slide(document.querySelector('.tabink'), document.querySelector('[role=tab][aria-selected=true]'));
+  document.querySelectorAll('.seg [aria-pressed=true]').forEach(b => slide(b.parentElement.querySelector('.thumb'), b));
+  requestAnimationFrame(() => requestAnimationFrame(() => document.body.classList.remove('still')));
+}
+addEventListener('resize', placeIndicators);
+document.fonts?.ready.then(placeIndicators);
+$(store('tab') || 'tab-alerts')?.click();
+start();
+
+// bienvenida: se abre con #bienvenida (Chorusly la abre así la primera vez, y el botón «Cómo empezar»)
+let twOk = false;
+function fillHello() {
+  if (!cfg) return;
+  document.querySelectorAll('[data-h]').forEach(i => { if (document.activeElement !== i) i.value = cfg[i.dataset.h] || ''; });
+  const b = $('hTwConn'); b.classList.toggle('ok', twOk); b.textContent = twOk ? 'Conectado: ' + cfg.twitch : 'Conectar con Twitch';
+  if (twOk) $('hTwType').hidden = $('hTwType').nextElementSibling.hidden = true;
+  else if (cfg.twitch) $('hTwType').click();
+}
+const hello = () => { if (location.hash === '#bienvenida' && !$('hello').open) { fillHello(); $('hello').showModal(); } };
+addEventListener('hashchange', hello); hello();
+$('hello').onclose = () => history.replaceState(null, '', location.pathname);
+$('hTwConn').onclick = () => twOk || window.open('/auth/twitch/start', 'twitch', 'width=520,height=760');
+$('hTwType').onclick = e => { e.preventDefault(); e.target.hidden = true; e.target.nextElementSibling.hidden = false; };
+let helloTimer;
+$('hello').addEventListener('input', e => {
+  const k = e.target.dataset.h; if (!k || !cfg) return;
+  cfg[k] = e.target.value.trim(); clearTimeout(helloTimer);
+  helloTimer = setTimeout(() => fetch('/config', { method: 'POST', body: JSON.stringify(cfg) }), 600);
+});
+</script>
+</body>
+</html>

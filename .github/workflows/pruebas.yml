@@ -1,0 +1,22 @@
+# Pasa todas las pruebas de Chorusly en cada cambio. Si algo se rompe, GitHub lo marca en rojo.
+name: Pruebas
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  pruebas:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: npm ci
+      - run: node server.js test
+      - run: npm install
+        working-directory: tests
+      - run: npx playwright install --with-deps chromium
+        working-directory: tests
+      # si falla, el final de la salida sale como aviso (se lee sin abrir el registro)
+      - run: node run.js > salida.txt 2>&1 || { cat salida.txt; echo "::error::$(tail -25 salida.txt | tr -d '\r' | tr '\n' '|')"; exit 1; }
+        working-directory: tests
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: capturas, path: tests/*.png, if-no-files-found: ignore }

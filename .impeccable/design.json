@@ -1,0 +1,734 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-18T16:53:55+00:00",
+  "title": "Design System: Chorusly",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#15132a",
+        "oklch": "oklch(20.3% 0.045 285.6)",
+        "tonalRamp": [
+          "#0a071d",
+          "#23223a",
+          "#403f59",
+          "#5e5e7a",
+          "#7f7f9d",
+          "#a2a2c1",
+          "#c6c6e6",
+          "#ededfe"
+        ]
+      },
+      "ink-sheet": {
+        "role": "neutral",
+        "displayName": "Ink Sheet",
+        "canonical": "#1c1938",
+        "oklch": "oklch(23.5% 0.058 285.4)",
+        "tonalRamp": [
+          "#0a0622",
+          "#232040",
+          "#3f3d60",
+          "#5e5d81",
+          "#7e7ea4",
+          "#a1a0c9",
+          "#c5c4ee",
+          "#ecedff"
+        ]
+      },
+      "ink-raise": {
+        "role": "neutral",
+        "displayName": "Ink Raise",
+        "canonical": "#29254d",
+        "oklch": "oklch(29.1% 0.071 285.6)",
+        "tonalRamp": [
+          "#0b0327",
+          "#231e46",
+          "#3f3c66",
+          "#5d5b88",
+          "#7e7cac",
+          "#a09fd0",
+          "#c4c3f6",
+          "#ededfe"
+        ]
+      },
+      "ink-raise-hover": {
+        "role": "neutral",
+        "displayName": "Ink Raise Hover",
+        "canonical": "#342f5c",
+        "oklch": "oklch(33.4% 0.077 286.5)",
+        "tonalRamp": [
+          "#0b0229",
+          "#231d48",
+          "#3f3b69",
+          "#5e5a8b",
+          "#7e7baf",
+          "#a19ed4",
+          "#c5c2fa",
+          "#ededfe"
+        ]
+      },
+      "keyline": {
+        "role": "neutral",
+        "displayName": "Keyline",
+        "canonical": "#2f2a4d",
+        "oklch": "oklch(30.8% 0.062 288.8)",
+        "tonalRamp": [
+          "#0c0523",
+          "#241f41",
+          "#413c61",
+          "#605c83",
+          "#817da6",
+          "#a39fca",
+          "#c7c3f0",
+          "#edecfe"
+        ]
+      },
+      "keyline-hover": {
+        "role": "neutral",
+        "displayName": "Keyline Hover",
+        "canonical": "#463f72",
+        "oklch": "oklch(40.0% 0.084 288.3)",
+        "tonalRamp": [
+          "#0d002b",
+          "#251b4b",
+          "#41396c",
+          "#5f598e",
+          "#807ab2",
+          "#a29dd7",
+          "#c6c1fe",
+          "#edecfe"
+        ]
+      },
+      "lilac-mute": {
+        "role": "neutral",
+        "displayName": "Lilac Mute",
+        "canonical": "#a49cc8",
+        "oklch": "oklch(71.5% 0.064 293.0)",
+        "tonalRamp": [
+          "#0d0423",
+          "#271e41",
+          "#433b61",
+          "#625a83",
+          "#837ba6",
+          "#a69eca",
+          "#cac2f0",
+          "#efecff"
+        ]
+      },
+      "lilac-white": {
+        "role": "neutral",
+        "displayName": "Lilac White",
+        "canonical": "#eeeaff",
+        "oklch": "oklch(94.6% 0.028 294.6)",
+        "tonalRamp": [
+          "#0c0916",
+          "#262232",
+          "#433f50",
+          "#625e70",
+          "#837f92",
+          "#a6a2b6",
+          "#cac6da",
+          "#efebff"
+        ]
+      },
+      "sticker-paper": {
+        "role": "neutral",
+        "displayName": "Sticker Paper",
+        "canonical": "#f2efe9",
+        "oklch": "oklch(95.3% 0.009 84.6)",
+        "tonalRamp": [
+          "#0d0b07",
+          "#272520",
+          "#44423d",
+          "#63615c",
+          "#85827d",
+          "#a7a59f",
+          "#ccc9c3",
+          "#f1eee8"
+        ]
+      },
+      "gift-pink": {
+        "role": "primary",
+        "displayName": "Gift Pink",
+        "canonical": "#fe2c55",
+        "oklch": "oklch(64.7% 0.238 17.7)",
+        "tonalRamp": [
+          "#1e0003",
+          "#4c0010",
+          "#7f0222",
+          "#b60335",
+          "#ef1049",
+          "#ff707c",
+          "#feb2b3",
+          "#fee8e8"
+        ]
+      },
+      "gift-pink-hover": {
+        "role": "primary",
+        "displayName": "Gift Pink Hover",
+        "canonical": "#ff4a6e",
+        "oklch": "oklch(67.6% 0.216 13.8)",
+        "tonalRamp": [
+          "#1e0004",
+          "#4c0015",
+          "#7e0229",
+          "#b5023e",
+          "#e62e5a",
+          "#ff6f83",
+          "#feb1b8",
+          "#fee8ea"
+        ]
+      },
+      "room-cyan": {
+        "role": "secondary",
+        "displayName": "Room Cyan",
+        "canonical": "#25f4ee",
+        "oklch": "oklch(87.6% 0.146 191.6)",
+        "tonalRamp": [
+          "#000f0e",
+          "#022c2a",
+          "#024d4a",
+          "#03706d",
+          "#029692",
+          "#10bdb8",
+          "#11e6e0",
+          "#b6fffa"
+        ]
+      },
+      "sub-yellow": {
+        "role": "secondary",
+        "displayName": "Sub Yellow",
+        "canonical": "#ffd23f",
+        "oklch": "oklch(87.9% 0.162 90.9)",
+        "tonalRamp": [
+          "#100a00",
+          "#2f2400",
+          "#514003",
+          "#765e03",
+          "#9e7e02",
+          "#c7a00a",
+          "#f1c429",
+          "#ffeebd"
+        ]
+      },
+      "bits-violet": {
+        "role": "tertiary",
+        "displayName": "Bits Violet",
+        "canonical": "#a78bfa",
+        "oklch": "oklch(70.9% 0.159 293.5)",
+        "tonalRamp": [
+          "#0f002a",
+          "#2d0162",
+          "#4a258c",
+          "#6849b1",
+          "#896bd7",
+          "#ab8ffe",
+          "#cbbffe",
+          "#efecfe"
+        ]
+      },
+      "share-green": {
+        "role": "tertiary",
+        "displayName": "Share Green",
+        "canonical": "#4ade80",
+        "oklch": "oklch(80.0% 0.182 151.7)",
+        "tonalRamp": [
+          "#001004",
+          "#002e12",
+          "#005025",
+          "#017539",
+          "#039c4e",
+          "#23c468",
+          "#58ea8b",
+          "#c7ffd4"
+        ]
+      },
+      "raid-orange": {
+        "role": "tertiary",
+        "displayName": "Raid Orange",
+        "canonical": "#ff8a3d",
+        "oklch": "oklch(75.0% 0.167 50.5)",
+        "tonalRamp": [
+          "#180500",
+          "#3e1900",
+          "#6a2f01",
+          "#984601",
+          "#ca5f02",
+          "#f58132",
+          "#ffb68d",
+          "#feeadf"
+        ]
+      },
+      "redeem-blue": {
+        "role": "tertiary",
+        "displayName": "Redeem Blue",
+        "canonical": "#60a5fa",
+        "oklch": "oklch(71.4% 0.143 254.6)",
+        "tonalRamp": [
+          "#000b1f",
+          "#00244d",
+          "#024180",
+          "#1961b0",
+          "#3f83d6",
+          "#62a7fd",
+          "#a5ccfe",
+          "#e4f0fe"
+        ]
+      },
+      "warning-red": {
+        "role": "tertiary",
+        "displayName": "Warning Red",
+        "canonical": "#ff3b5c",
+        "oklch": "oklch(66.0% 0.229 17.5)",
+        "tonalRamp": [
+          "#1f0003",
+          "#4c0111",
+          "#7f0122",
+          "#b60235",
+          "#eb214d",
+          "#fe717c",
+          "#ffb1b3",
+          "#ffe8e8"
+        ]
+      },
+      "live-green": {
+        "role": "tertiary",
+        "displayName": "Live Green",
+        "canonical": "#12b76a",
+        "oklch": "oklch(68.6% 0.167 154.9)",
+        "tonalRamp": [
+          "#000f05",
+          "#012e16",
+          "#02502b",
+          "#057441",
+          "#099b59",
+          "#2bc375",
+          "#5de898",
+          "#c5ffd8"
+        ]
+      },
+      "platform-twitch": {
+        "role": "platform",
+        "displayName": "Twitch Purple",
+        "canonical": "#9146ff",
+        "oklch": "oklch(59.1% 0.255 296.1)",
+        "tonalRamp": [
+          "#100029",
+          "#2f0061",
+          "#52009f",
+          "#7619dc",
+          "#9451ff",
+          "#af8dfe",
+          "#cebefe",
+          "#f0ebff"
+        ]
+      },
+      "platform-youtube": {
+        "role": "platform",
+        "displayName": "YouTube Red",
+        "canonical": "#ff0033",
+        "oklch": "oklch(63.1% 0.255 23.6)",
+        "tonalRamp": [
+          "#1f0001",
+          "#4d0008",
+          "#800014",
+          "#b80122",
+          "#f20230",
+          "#ff726f",
+          "#feb3ad",
+          "#fee9e7"
+        ]
+      },
+      "platform-tiktok": {
+        "role": "platform",
+        "displayName": "TikTok Cyan",
+        "canonical": "#25f4ee",
+        "oklch": "oklch(87.6% 0.146 191.6)",
+        "tonalRamp": [
+          "#000f0e",
+          "#022c2a",
+          "#024d4a",
+          "#03706d",
+          "#029692",
+          "#10bdb8",
+          "#11e6e0",
+          "#b6fffa"
+        ]
+      },
+      "platform-kick": {
+        "role": "platform",
+        "displayName": "Kick Green",
+        "canonical": "#53fc18",
+        "oklch": "oklch(86.9% 0.276 140.2)",
+        "tonalRamp": [
+          "#011000",
+          "#072e00",
+          "#135001",
+          "#217503",
+          "#2d9c02",
+          "#3cc506",
+          "#4af002",
+          "#cdffc3"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Welcome dialog headline only."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Wordmark and dialog titles."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card titles, tabs, preview bar."
+      },
+      "sticker": {
+        "displayName": "Sticker",
+        "purpose": "Names and amounts on stickers, alerts and goals."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "Buttons, tool pills, header links, chips."
+      },
+      "section-label": {
+        "displayName": "Section label",
+        "purpose": "Dock section bars «Eventos», «En la sala», «Chat»; uppercase, always with chevron or count."
+      },
+      "tag": {
+        "displayName": "Tag",
+        "purpose": "Tilted event tag inside a chat row."
+      },
+      "chat": {
+        "displayName": "Chat",
+        "purpose": "Chat messages; user-adjustable in «Apariencia»."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Form labels, hints, empty states."
+      },
+      "mono": {
+        "displayName": "Mono",
+        "purpose": "OBS URLs only."
+      }
+    },
+    "shadows": [
+      {
+        "name": "keyline",
+        "value": "inset 0 0 0 1.5px #2f2a4d",
+        "purpose": "Edge of all chrome at rest."
+      },
+      {
+        "name": "keyline-hover",
+        "value": "inset 0 0 0 1.5px #463f72",
+        "purpose": "Hovered chrome edge."
+      },
+      {
+        "name": "sticker",
+        "value": "0 0 0 2px #f2efe9, 0 4px 10px #000a",
+        "purpose": "Standard die-cut sticker."
+      },
+      {
+        "name": "sticker-big",
+        "value": "0 0 0 2px #f2efe9, 0 0 0 5px #ffd23f, 0 6px 14px #000a",
+        "purpose": "Big gift: yellow second keyline."
+      },
+      {
+        "name": "sticker-landing",
+        "value": "0 0 0 2px #f2efe9, 0 22px 30px #0006",
+        "purpose": "Start frame of the slap; tightens to sticker."
+      },
+      {
+        "name": "tag",
+        "value": "0 0 0 1.5px #f2efe9, 0 2px 4px #0008",
+        "purpose": "Small tag inside a chat row."
+      },
+      {
+        "name": "face-ring",
+        "value": "0 0 0 2px #f2efe9, 0 0 0 4.5px var(--pc), 0 3px 6px 4px #0007",
+        "purpose": "Room avatars; outer ring in platform colour."
+      },
+      {
+        "name": "pressed-on",
+        "value": "0 2px 6px #0007",
+        "purpose": "Solid pink and connect buttons."
+      },
+      {
+        "name": "chip-on",
+        "value": "0 1px 4px #0008",
+        "purpose": "Paper chips (connected platform, files)."
+      },
+      {
+        "name": "alert-sticker",
+        "value": "0 0 0 3px #f2efe9, 0 18px 40px #000c",
+        "purpose": "TikTok moderation warning."
+      },
+      {
+        "name": "floating-sheet",
+        "value": "0 0 0 1.5px #2f2a4d, 0 24px 60px #000c",
+        "purpose": "Dialogs."
+      },
+      {
+        "name": "welcome-sheet",
+        "value": "0 0 0 1.5px #2f2a4d, 0 30px 80px #000a",
+        "purpose": "Welcome dialog."
+      },
+      {
+        "name": "overlay-alert",
+        "value": "0 0 0 .13em #f2efe9, 0 .45em 1.1em #000a",
+        "purpose": "On-stream alert sticker, scales with font size."
+      },
+      {
+        "name": "overlay-goal",
+        "value": "0 0 0 .12em #f2efe9, 0 .3em .8em #0009",
+        "purpose": "On-stream goal and ranking sticker."
+      }
+    ],
+    "motion": [
+      {
+        "name": "slap",
+        "value": "cubic-bezier(.2, 1.5, .4, 1)",
+        "purpose": "Every arrival: stickers, faces, dialogs, alerts, chevrons, hover tilts."
+      },
+      {
+        "name": "ease",
+        "value": "cubic-bezier(.2, .8, .2, 1)",
+        "purpose": "Layout transitions: tab bar, segmented thumb, card rise, switches."
+      },
+      {
+        "name": "slap-sticker",
+        "value": ".55s; from scale(1.35) rotate(rest - 9deg), shadow 22px to 4px",
+        "purpose": "New event sticker in the dock."
+      },
+      {
+        "name": "slap-overlay",
+        "value": ".6s; from scale(1.7) rotate(-16deg)",
+        "purpose": "On-stream alert entrance option «slap»."
+      },
+      {
+        "name": "face-in",
+        "value": ".5s; from scale(.5) rotate(-12deg)",
+        "purpose": "Room face arrives."
+      },
+      {
+        "name": "rise-stagger",
+        "value": ".5s; translateY(10px); 45ms per item",
+        "purpose": "Widgets page cards on first open, once."
+      },
+      {
+        "name": "press",
+        "value": "scale(.96)",
+        "purpose": "Active state of buttons and tools."
+      }
+    ],
+    "rotations": [
+      {
+        "name": "event-sticker",
+        "value": "-1deg / .8deg / -.4deg (nth-child)"
+      },
+      {
+        "name": "chat-tag",
+        "value": "-2deg"
+      },
+      {
+        "name": "overlay-alert",
+        "value": "-3deg"
+      },
+      {
+        "name": "overlay-goal",
+        "value": "-1deg"
+      },
+      {
+        "name": "notice",
+        "value": "-1.5deg"
+      },
+      {
+        "name": "badge-logo",
+        "value": "-4deg"
+      }
+    ],
+    "eventColors": {
+      "gift": "#fe2c55",
+      "superchat": "#fe2c55",
+      "bits": "#a78bfa",
+      "powerup": "#a78bfa",
+      "follow": "#25f4ee",
+      "share": "#4ade80",
+      "sub": "#ffd23f",
+      "subgift": "#ffd23f",
+      "raid": "#ff8a3d",
+      "hype": "#ff8a3d",
+      "shoutout": "#60a5fa",
+      "redeem": "#60a5fa",
+      "mod": "#ff3b5c"
+    },
+    "breakpoints": [
+      {
+        "name": "widgets-single-column",
+        "value": "980px"
+      },
+      {
+        "name": "welcome-platforms-stack",
+        "value": "560px"
+      },
+      {
+        "name": "preview-bar-fold (container)",
+        "value": "600px"
+      },
+      {
+        "name": "test-stickers-2col (container)",
+        "value": "560px"
+      },
+      {
+        "name": "dock-tools-icons-only (container)",
+        "value": "250px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one pink action in a group: «Guardar en Twitch», «Elegir archivos», «Empezar».",
+      "html": "<button class=\"ds-btn-pri\">Guardar en Twitch</button>",
+      "css": ":host{--ink:#15132a;--sheet:#1c1938;--raise:#29254d;--line:#2f2a4d;--hover:#463f72;--mut:#a49cc8;--text:#eeeaff;--paper:#f2efe9;--pink:#fe2c55;--cyan:#25f4ee;--yellow:#ffd23f;--violet:#a78bfa;--green:#4ade80;--sticker:0 0 0 2px var(--paper),0 4px 10px #000a;--slap:cubic-bezier(.2,1.5,.4,1);--ease:cubic-bezier(.2,.8,.2,1);--head:\"Bricolage Grotesque\",system-ui,sans-serif;} .ds-btn-pri{height:38px;padding:0 14px;border:0;border-radius:10px;background:var(--pink);color:var(--ink);box-shadow:0 2px 6px #0007;font:700 13px var(--head);cursor:pointer;transition:transform .15s var(--ease),background .2s;} .ds-btn-pri:hover{background:#ff4a6e;} .ds-btn-pri:active{transform:scale(.96);} .ds-btn-pri:focus-visible{outline:2px solid var(--cyan);outline-offset:2px;}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Raised ink pill with an inset keyline; every non-primary action on the widgets page.",
+      "html": "<button class=\"ds-btn\">Copiar</button>",
+      "css": ":host{--ink:#15132a;--sheet:#1c1938;--raise:#29254d;--line:#2f2a4d;--hover:#463f72;--mut:#a49cc8;--text:#eeeaff;--paper:#f2efe9;--pink:#fe2c55;--cyan:#25f4ee;--yellow:#ffd23f;--violet:#a78bfa;--green:#4ade80;--sticker:0 0 0 2px var(--paper),0 4px 10px #000a;--slap:cubic-bezier(.2,1.5,.4,1);--ease:cubic-bezier(.2,.8,.2,1);--head:\"Bricolage Grotesque\",system-ui,sans-serif;} .ds-btn{height:38px;padding:0 14px;border:0;border-radius:10px;background:var(--raise);color:var(--text);box-shadow:inset 0 0 0 1.5px var(--line);font:700 13px var(--head);cursor:pointer;transition:transform .15s var(--ease),background .2s,box-shadow .2s;} .ds-btn:hover{background:#342f5c;} .ds-btn:active{transform:scale(.96);} .ds-btn:focus-visible{outline:2px solid var(--cyan);outline-offset:2px;}"
+    },
+    {
+      "name": "Dock Tool Pill",
+      "kind": "button",
+      "refersTo": "dock-tool",
+      "description": "Flat icon-and-label pill in the dock header; three share a row, the first in pink.",
+      "html": "<div class=\"ds-tools\"><button class=\"ds-tool ds-pri\"><svg viewBox=\"0 0 24 24\"><path d=\"M12 20h9\"/><path d=\"M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z\"/></svg>Editar directo</button><button class=\"ds-tool\"><svg viewBox=\"0 0 24 24\"><path d=\"M10 2v7.5a2 2 0 0 1-.2.9L4.7 20.6a1 1 0 0 0 .9 1.4h12.8a1 1 0 0 0 .9-1.4l-5.1-10.2a2 2 0 0 1-.2-.9V2\"/><path d=\"M8.5 2h7M7 16h10\"/></svg>Probar</button></div>",
+      "css": ":host{--ink:#15132a;--sheet:#1c1938;--raise:#29254d;--line:#2f2a4d;--hover:#463f72;--mut:#a49cc8;--text:#eeeaff;--paper:#f2efe9;--pink:#fe2c55;--cyan:#25f4ee;--yellow:#ffd23f;--violet:#a78bfa;--green:#4ade80;--sticker:0 0 0 2px var(--paper),0 4px 10px #000a;--slap:cubic-bezier(.2,1.5,.4,1);--ease:cubic-bezier(.2,.8,.2,1);--head:\"Bricolage Grotesque\",system-ui,sans-serif;} .ds-tools{display:grid;grid-template-columns:1fr 1fr;gap:6px;width:280px;} .ds-tool{display:flex;align-items:center;justify-content:center;gap:6px;height:34px;padding:0 6px;border:0;border-radius:10px;background:#ffffff0a;color:#eeeaff;box-shadow:inset 0 0 0 1.5px var(--line);font:700 12px/1 var(--head);cursor:pointer;transition:background .15s,box-shadow .15s,transform .12s;} .ds-tool svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;color:var(--mut);} .ds-tool:hover{background:#ffffff14;box-shadow:inset 0 0 0 1.5px var(--hover);} .ds-tool:active{transform:scale(.96);} .ds-tool:focus-visible{outline:2px solid var(--cyan);outline-offset:2px;} .ds-tool.ds-pri{background:var(--pink);color:var(--ink);box-shadow:0 2px 6px #0007;} .ds-tool.ds-pri svg{color:var(--ink);} .ds-tool.ds-pri:hover{background:#ff4a6e;}"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Ink well with an inset keyline and a cyan focus ring.",
+      "html": "<label class=\"ds-label\">Título en Twitch<input class=\"ds-input\" value=\"Directo de tarde\"></label>",
+      "css": ":host{--ink:#15132a;--sheet:#1c1938;--raise:#29254d;--line:#2f2a4d;--hover:#463f72;--mut:#a49cc8;--text:#eeeaff;--paper:#f2efe9;--pink:#fe2c55;--cyan:#25f4ee;--yellow:#ffd23f;--violet:#a78bfa;--green:#4ade80;--sticker:0 0 0 2px var(--paper),0 4px 10px #000a;--slap:cubic-bezier(.2,1.5,.4,1);--ease:cubic-bezier(.2,.8,.2,1);--head:\"Bricolage Grotesque\",system-ui,sans-serif;} .ds-label{display:grid;gap:4px;font:12px system-ui,\"Segoe UI\",sans-serif;color:var(--mut);width:280px;} .ds-input{height:38px;padding:0 11px;border:0;border-radius:10px;background:var(--ink);color:var(--text);box-shadow:inset 0 0 0 1.5px var(--line);font:14px system-ui,\"Segoe UI\",sans-serif;} .ds-input:hover{box-shadow:inset 0 0 0 1.5px var(--hover);} .ds-input:focus-visible,.ds-input:focus{outline:2px solid var(--cyan);outline-offset:1px;}"
+    },
+    {
+      "name": "Switch",
+      "kind": "input",
+      "refersTo": "switch-on",
+      "description": "Native checkbox as a pill switch: keyline-hover off, pink on.",
+      "html": "<input type=\"checkbox\" class=\"ds-switch\" checked aria-label=\"Activar\">",
+      "css": ":host{--ink:#15132a;--sheet:#1c1938;--raise:#29254d;--line:#2f2a4d;--hover:#463f72;--mut:#a49cc8;--text:#eeeaff;--paper:#f2efe9;--pink:#fe2c55;--cyan:#25f4ee;--yellow:#ffd23f;--violet:#a78bfa;--green:#4ade80;--sticker:0 0 0 2px var(--paper),0 4px 10px #000a;--slap:cubic-bezier(.2,1.5,.4,1);--ease:cubic-bezier(.2,.8,.2,1);--head:\"Bricolage Grotesque\",system-ui,sans-serif;} .ds-switch{appearance:none;position:relative;width:40px;height:22px;margin:0;border-radius:99px;background:var(--hover);cursor:pointer;transition:background .2s;} .ds-switch::after{content:\"\";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 3px #0006;transition:transform .2s var(--ease);} .ds-switch:checked{background:var(--pink);} .ds-switch:checked::after{transform:translateX(18px);} .ds-switch:focus-visible{outline:2px solid var(--cyan);outline-offset:2px;}"
+    },
+    {
+      "name": "Tabs",
+      "kind": "nav",
+      "refersTo": "",
+      "description": "Bricolage tabs with a pink bar under the active one.",
+      "html": "<div class=\"ds-tabs\"><button class=\"ds-tab\" aria-selected=\"true\">Alertas</button><button class=\"ds-tab\">Metas</button><button class=\"ds-tab\">Sonidos e imágenes</button></div>",
+      "css": ":host{--ink:#15132a;--sheet:#1c1938;--raise:#29254d;--line:#2f2a4d;--hover:#463f72;--mut:#a49cc8;--text:#eeeaff;--paper:#f2efe9;--pink:#fe2c55;--cyan:#25f4ee;--yellow:#ffd23f;--violet:#a78bfa;--green:#4ade80;--sticker:0 0 0 2px var(--paper),0 4px 10px #000a;--slap:cubic-bezier(.2,1.5,.4,1);--ease:cubic-bezier(.2,.8,.2,1);--head:\"Bricolage Grotesque\",system-ui,sans-serif;} .ds-tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);} .ds-tab{position:relative;padding:10px 16px;border:0;background:none;color:var(--mut);font:800 16px var(--head);cursor:pointer;transition:color .2s;} .ds-tab:hover,.ds-tab[aria-selected=true]{color:var(--text);} .ds-tab[aria-selected=true]::after{content:\"\";position:absolute;left:16px;right:16px;bottom:-2px;height:4px;border-radius:4px;background:var(--pink);} .ds-tab:focus-visible{outline:2px solid var(--cyan);outline-offset:2px;}"
+    },
+    {
+      "name": "Platform Chip",
+      "kind": "chip",
+      "refersTo": "platform-chip-on",
+      "description": "Connection chip in the dock header: paper face when connected, keyline when idle.",
+      "html": "<span class=\"ds-chips\"><button class=\"ds-chip ds-on\"><i></i>TikTok</button><button class=\"ds-chip\"><i></i>Kick</button></span>",
+      "css": ":host{--ink:#15132a;--sheet:#1c1938;--raise:#29254d;--line:#2f2a4d;--hover:#463f72;--mut:#a49cc8;--text:#eeeaff;--paper:#f2efe9;--pink:#fe2c55;--cyan:#25f4ee;--yellow:#ffd23f;--violet:#a78bfa;--green:#4ade80;--sticker:0 0 0 2px var(--paper),0 4px 10px #000a;--slap:cubic-bezier(.2,1.5,.4,1);--ease:cubic-bezier(.2,.8,.2,1);--head:\"Bricolage Grotesque\",system-ui,sans-serif;} .ds-chips{display:flex;gap:6px;} .ds-chip{display:flex;align-items:center;gap:5px;border:0;border-radius:6px;padding:3px 8px 3px 7px;background:transparent;color:var(--mut);box-shadow:inset 0 0 0 1.5px var(--line);font:700 11.5px/1 var(--head);letter-spacing:.02em;cursor:pointer;transition:transform .2s var(--slap);} .ds-chip i{width:7px;height:7px;border-radius:50%;background:#6b6590;} .ds-chip.ds-on{background:var(--paper);color:var(--ink);box-shadow:0 1px 4px #0008;} .ds-chip.ds-on i{background:#12b76a;box-shadow:0 0 0 2px #12b76a33;} .ds-chip:hover{transform:translateY(-1px);} .ds-chip:focus-visible{outline:2px solid var(--cyan);outline-offset:2px;}"
+    },
+    {
+      "name": "Settings Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Ink sheet card with an inset keyline; holds a group of widget settings.",
+      "html": "<div class=\"ds-card\"><h2>Aspecto de las alertas</h2><p>En OBS: fuente de navegador de 800 × 600.</p></div>",
+      "css": ":host{--ink:#15132a;--sheet:#1c1938;--raise:#29254d;--line:#2f2a4d;--hover:#463f72;--mut:#a49cc8;--text:#eeeaff;--paper:#f2efe9;--pink:#fe2c55;--cyan:#25f4ee;--yellow:#ffd23f;--violet:#a78bfa;--green:#4ade80;--sticker:0 0 0 2px var(--paper),0 4px 10px #000a;--slap:cubic-bezier(.2,1.5,.4,1);--ease:cubic-bezier(.2,.8,.2,1);--head:\"Bricolage Grotesque\",system-ui,sans-serif;} .ds-card{width:320px;padding:18px;border-radius:16px;background:var(--sheet);box-shadow:inset 0 0 0 1.5px var(--line);color:var(--text);font:14px/1.45 system-ui,\"Segoe UI\",sans-serif;} .ds-card h2{margin:0 0 4px;font:800 18px/1.2 var(--head);letter-spacing:-.01em;} .ds-card p{margin:8px 0 0;color:var(--mut);font-size:12px;}"
+    },
+    {
+      "name": "Event Sticker",
+      "kind": "custom",
+      "refersTo": "event-sticker",
+      "description": "Signature: a real event as a die-cut sticker in its event ink, paper keyline, tilt, slapped in.",
+      "html": "<div class=\"ds-ev\"><span class=\"ds-ico\"><svg viewBox=\"0 0 24 24\"><path d=\"M20 12v9H4v-9M2 7h20v5H2zM12 21V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z\"/></svg></span><span class=\"ds-b\"><b>Ballena</b><small>ha enviado León x1</small></span><span class=\"ds-amt\">29.999</span></div>",
+      "css": ":host{--ink:#15132a;--sheet:#1c1938;--raise:#29254d;--line:#2f2a4d;--hover:#463f72;--mut:#a49cc8;--text:#eeeaff;--paper:#f2efe9;--pink:#fe2c55;--cyan:#25f4ee;--yellow:#ffd23f;--violet:#a78bfa;--green:#4ade80;--sticker:0 0 0 2px var(--paper),0 4px 10px #000a;--slap:cubic-bezier(.2,1.5,.4,1);--ease:cubic-bezier(.2,.8,.2,1);--head:\"Bricolage Grotesque\",system-ui,sans-serif;} .ds-ev{--ec:#fe2c55;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:0 8px;width:280px;padding:7px 10px 7px 8px;border-radius:11px;background:var(--ec);color:var(--ink);box-shadow:var(--sticker);transform:rotate(-1deg);animation:ds-slap .55s var(--slap) both;font:14px/1.3 system-ui,\"Segoe UI\",sans-serif;} .ds-ico{display:grid;place-items:center;width:1.9em;height:1.9em;border-radius:50%;background:var(--paper);} .ds-ico svg{width:16px;height:16px;fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;} .ds-b{display:grid;min-width:0;} .ds-b b{font:800 1em/1.2 var(--head);} .ds-b small{font-size:.85em;font-weight:600;color:color-mix(in srgb,var(--ink) 82%,var(--ec));} .ds-amt{padding:2px 7px;border-radius:6px;background:var(--ink);color:var(--paper);font:800 .85em/1.2 var(--head);} @keyframes ds-slap{0%{opacity:0;transform:scale(1.35) rotate(-10deg);box-shadow:0 0 0 2px var(--paper),0 22px 30px #0006;}60%{opacity:1;}} @media (prefers-reduced-motion:reduce){.ds-ev{animation:none;}}"
+    },
+    {
+      "name": "Overlay Alert Sticker",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "«Pegatina Chorusly» on-stream alert: event-ink sticker, name on a cream label.",
+      "html": "<div class=\"ds-al\"><span><b>Prueba</b> ha enviado Rosa x5</span></div>",
+      "css": ":host{--ink:#15132a;--sheet:#1c1938;--raise:#29254d;--line:#2f2a4d;--hover:#463f72;--mut:#a49cc8;--text:#eeeaff;--paper:#f2efe9;--pink:#fe2c55;--cyan:#25f4ee;--yellow:#ffd23f;--violet:#a78bfa;--green:#4ade80;--sticker:0 0 0 2px var(--paper),0 4px 10px #000a;--slap:cubic-bezier(.2,1.5,.4,1);--ease:cubic-bezier(.2,.8,.2,1);--head:\"Bricolage Grotesque\",system-ui,sans-serif;} .ds-al{display:inline-block;margin:16px;padding:.5em 1em .6em;border-radius:.55em;background:var(--pink);color:var(--ink);font:800 28px/1.15 var(--head);box-shadow:0 0 0 .13em var(--paper),0 .45em 1.1em #000a;rotate:-3deg;animation:ds-al .6s var(--slap);} .ds-al b{padding:0 .22em;border-radius:.2em;background:var(--paper);} @keyframes ds-al{from{transform:scale(1.7) rotate(-16deg);opacity:0;}35%{opacity:1;}} @media (prefers-reduced-motion:reduce){.ds-al{animation:none;}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Sticker Sheet",
+    "overview": "Chorusly is a calm ink sheet that real events get slapped onto. The ground is a deep blue-violet ink with a slightly lighter sheet for headers, cards and dialogs; on top of it, anything that genuinely happened on a platform (a gift, a follow, a sub, a raid, a TikTok moderation warning) arrives as a die-cut sticker: a flat block of event ink, dark ink lettering, a cream paper keyline, a soft drop shadow and a tilt of a degree or two. Plain chat stays plain text in the system face. The contrast between the two is the product promise made visible: a message typed in chat can never look like a sticker.\n\nThe system is dense and quiet where the streamer works and loud only where something matters. The OBS dock (320 to 450 px, glanced at while live) is chat-first: a slim sheet header with the logo, platform chips and a settings gear, three flat tool pills, a horizontal strip of small event stickers, a row of round face stickers for the room, then full-height chat. The widgets page (desktop browser) reuses the same header grammar, tabs and settings cards on the left, and a sticky preview canvas on the right where the same stickers land. The on-stream overlays (theme «Pegatina Chorusly») are the stickers at broadcast scale.\n\nIt explicitly refuses the category default of a dark panel with glowing neon cards: there is no glow, no gradient chrome, no glass. Depth comes from paper keylines and soft fallen shadows, not light emission. Motion has one signature, the slap: a sticker lands oversized and over-rotated, overshoots, and settles at its resting tilt as its shadow tightens.",
+    "keyCharacteristics": [
+      "Ink ground, lighter ink sheet, chrome edged by a 1.5 px inset keyline instead of borders.",
+      "Stickers: event-coloured block, dark ink text, 2 px cream paper keyline, soft offset shadow, 1 to 3 degree tilt.",
+      "Colour encodes event type, never platform; platform appears as a small badge or a face ring.",
+      "Two voices: Bricolage Grotesque 700 to 800 for everything the app says; Segoe UI / system for everything people say.",
+      "One springy easing, the slap, for every arrival."
+    ],
+    "rules": [
+      {
+        "name": "The Colour-Is-Event Rule",
+        "body": "A sticker's fill says what happened (gift, follow, sub, share, raid, redeem, warning), never which platform it came from. The same map drives the dock, the test buttons and the overlay.",
+        "section": "colors"
+      },
+      {
+        "name": "The Ink-on-Ink Rule",
+        "body": "Text on a sticker is always Ink, never white. Every sticker ink was chosen to pass contrast with dark lettering; a new event colour must too.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Pink Rule",
+        "body": "Each group of actions has at most one Gift Pink button. Everything else is a keyline pill.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Voices Rule",
+        "body": "Bricolage speaks for the app (stickers, headings, buttons, chips, labels); the system face speaks for people (chat, inputs, hints). Never set a chat message in Bricolage, never set a button in the system face.",
+        "section": "typography"
+      },
+      {
+        "name": "The Paper Keyline Rule",
+        "body": "A cream keyline means \"this really happened\" (or \"this is the brand\"). Chrome never gets one; chrome gets the inset Keyline.",
+        "section": "elevation"
+      },
+      {
+        "name": "The No-Glow Rule",
+        "body": "Depth is cast shadow, never emitted light. No coloured blur halos, no neon edges.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** reserve the sticker treatment (event ink, Ink text, 2px Sticker Paper keyline, soft shadow, tilt) for things that really happened or are announced by the app itself.",
+      "**Do** pick a sticker's fill from the event map: gift pink, follow cyan, sub yellow, bits violet, share green, raid orange, redeem blue, warning red.",
+      "**Do** edge chrome with `inset 0 0 0 1.5px` Keyline, not borders.",
+      "**Do** bring every arrival in on the slap curve (`cubic-bezier(.2, 1.5, .4, 1)`) and every layout transition on the standard ease (`cubic-bezier(.2, .8, .2, 1)`).",
+      "**Do** keep sticker tilts between -4 and 1 degrees and keep chrome square.",
+      "**Do** use Room Cyan 2px outlines for focus everywhere.",
+      "**Do** draw UI icons as inline 16px stroke SVGs (2px stroke, round caps and joins, currentColor), as in the dock tools and gear.",
+      "**Do** honour prefers-reduced-motion by removing animation and transitions, as the widgets page does."
+    ],
+    "donts": [
+      "**Don't** render chat text as a sticker, or let any user-typed content take the paper keyline: a sticker must be impossible to fake by typing.",
+      "**Don't** put white text on a sticker.",
+      "**Don't** add glow, neon edges, glassmorphism or gradient chrome; this world refuses the dark-panel-with-neon-cards default.",
+      "**Don't** use a 3D cyan and red split effect on lettering (rejected by the owner).",
+      "**Don't** colour a sticker by platform; platforms get the small badge and the face ring only.",
+      "**Don't** use more than one Gift Pink button per action group."
+    ]
+  }
+}
